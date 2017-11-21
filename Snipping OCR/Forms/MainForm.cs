@@ -155,7 +155,8 @@ namespace Snipping_OCR
         private void ProcessOcrImage(Image image)
         {
             var lang = (string)mnuLanguageCombo.SelectedItem == "Spanish" ? "spa" : "eng";
-            var result = Ocr.Process(image, lang);
+            //var result = Ocr.Process(image, lang);
+            var result = ImageSearch.Process(image);
             notifyIcon.Visible = true; // hide balloon tip (if any)
             OcrResultForm.ShowOcr(result);
         }

@@ -112,6 +112,7 @@
       <DependentUpon>OcrResultForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HotkeyHelper\HotKey.cs" />
+    <Compile Include="ImageSearchHelper\ImageSearchHelper.cs" />
     <Compile Include="OcrHelper\Ocr.cs" />
     <Compile Include="OcrHelper\OcrResult.cs" />
     <Compile Include="SnippingTool\DeviceInfo.cs" />

@@ -50,7 +50,7 @@
             this.ClientSize = new System.Drawing.Size(753, 510);
             this.Controls.Add(this.txtLog);
             this.Name = "OcrResultForm";
-            this.Text = "OCR Result";
+            this.Text = "ImageSearch Result";
             this.ResumeLayout(false);
             this.PerformLayout();
 

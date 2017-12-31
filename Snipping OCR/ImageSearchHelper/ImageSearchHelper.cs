@@ -15,7 +15,7 @@ namespace Snipping_OCR
 
         public static OcrResult Process(Image image, string language = "eng")
         {
-            string tpath = "c:/temp/capture.png";
+            string tpath = Path.GetTempFileName();
             image.Save(tpath, System.Drawing.Imaging.ImageFormat.Png);
             return ProcessProc(tpath);
         }

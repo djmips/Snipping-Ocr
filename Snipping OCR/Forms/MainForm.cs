@@ -28,14 +28,14 @@ namespace Snipping_OCR
 
             WindowState = FormWindowState.Minimized;
             notifyIcon.Visible = true;
-            mnuLanguageCombo.SelectedIndex = 0;
+            //mnuLanguageCombo.SelectedIndex = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             RegisterClipboardViewer();
             RegisterHotKey();
-            ShowBaloonMessage("Double-click the systray icon or press CTRL+WIN+C to start a new snip...", "Snipping OCR");
+            ShowBaloonMessage("Double-click the systray icon or press CTRL+WIN+C to start a new snip...", "Screen ImageSearch");
             Hide();
         }
 
@@ -137,7 +137,7 @@ namespace Snipping_OCR
         {
             if (Clipboard.ContainsImage())
             {
-                ShowBaloonMessage("Processing clipboard image...", "OCR");
+                ShowBaloonMessage("Processing clipboard image...", "ImageSearch");
                 int retries = 2;
                 while (retries-- > 0)
                 {
@@ -154,11 +154,11 @@ namespace Snipping_OCR
 
         private void ProcessOcrImage(Image image)
         {
-            var lang = (string)mnuLanguageCombo.SelectedItem == "Spanish" ? "spa" : "eng";
+            //var lang = (string)mnuLanguageCombo.SelectedItem == "Spanish" ? "spa" : "eng";
             //var result = Ocr.Process(image, lang);
             var result = ImageSearch.Process(image);
             notifyIcon.Visible = true; // hide balloon tip (if any)
-            OcrResultForm.ShowOcr(result);
+            //OcrResultForm.ShowOcr(result);
         }
 
         private void mnuExit_Click(object sender, EventArgs e)
@@ -246,13 +246,18 @@ namespace Snipping_OCR
             if ((ModifierKeys & Keys.Control) == Keys.Control)
             {
                 Clipboard.SetImage(SnippingTool.Image);
-                ShowBaloonMessage("Copied to clipboard...", "OCR");
+                ShowBaloonMessage("Copied to clipboard...", "ImageSearch");
             }
             else
             {
-                ShowBaloonMessage("Processing image...", "OCR");
+                ShowBaloonMessage("Processing image...", "ImageSearch");
                 ProcessOcrImage(SnippingTool.Image);
             }
+        }
+
+        private void notifyMenu_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

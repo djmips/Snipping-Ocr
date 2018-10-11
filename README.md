@@ -1,5 +1,5 @@
 
-# Snipping-Ocr
+# Image Search
 
 This is no longer a snipping OCR it's now a snipping google image search
 
